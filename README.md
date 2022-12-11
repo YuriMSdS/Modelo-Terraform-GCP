@@ -8,7 +8,7 @@
 
 
 
-   >Legenda
+   >Observações
     
      Os "defaults" podem ser alterados de acordo com a preferência do projeto
 
