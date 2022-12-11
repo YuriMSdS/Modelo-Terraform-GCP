@@ -12,4 +12,4 @@
      Os "defaults" podem ser alterados de acordo com a preferência do projeto
      O account_ID ou o email devem ser alterados para as informações pessoais do projeto
      
- >Como dito anteriormente o objetivo é apenas mostrar um modelo, mas tem outras opções que podem ser acrescentadas ou removidas, tudo de acordo com o objetivo dos envolvidos no projeto.
+ Como dito anteriormente o objetivo é apenas mostrar um modelo, mas tem outras opções que podem ser acrescentadas ou removidas, tudo de acordo com o objetivo dos envolvidos no projeto.
