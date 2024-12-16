@@ -1,13 +1,14 @@
-resource "google_service_account" "default" {
+resource "google_service_account" "vm_service_account" {
   account_id   = "service_account_id"
-  display_name = "gcp instance"
+  display_name = "Service Account for VM"
 }
 
-resource "google_compute_instance" "default" {
-  name         = "VMtest"
+resource "google_compute_instance" "vm_instance" {
+  name         = "vm-test-instance"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
+  
   tags = ["flag", "find"]
 
   boot_disk {
@@ -19,8 +20,7 @@ resource "google_compute_instance" "default" {
     }
   }
 
-
-  // Local SSD disk
+  # Disco SSD local para armazenamento temporário
   scratch_disk {
     interface = "SCSI"
   }
@@ -29,7 +29,7 @@ resource "google_compute_instance" "default" {
     network = "default"
 
     access_config {
-      // Ephemeral public IP
+      # Gera um IP público efêmero
     }
   }
 
@@ -37,11 +37,9 @@ resource "google_compute_instance" "default" {
     flag = "find"
   }
 
-  metadata_startup_script = "echo hi > /test.txt"
-
+  # Configuração da conta de serviço
   service_account {
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
+    email  = google_service_account.vm_service_account.email
     scopes = ["cloud-platform"]
   }
 }
